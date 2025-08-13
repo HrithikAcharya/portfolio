@@ -11,7 +11,7 @@ const ProjectCard = ({ title, description, link }) => {
           {title}
         </h3>
 
-        <p className="text-white/80 mb-4 text-sm sm:text-base text-left sm:text-justify leading-relaxed">
+        <p className="text-white/80 mb-4 text-sm sm:text-base text-justify leading-relaxed">
           {description}
         </p>
 

@@ -16,7 +16,7 @@ const App = () => {
     <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow p-1">
       About Me
     </h2>
-    <p className="mb-6 text-white/80 text-base sm:text-lg text-left sm:text-justify leading-relaxed">
+    <p className="mb-6 text-white/80 text-base sm:text-lg text-justify leading-relaxed">
       I’m a Graduate student in Information Technology at Florida State University with a passion for building practical, innovative software solutions. My background includes internships in software testing, Python, web development, and machine learning–based image data analysis, along with hands-on training from QSpiders in programming and QA.
       Currently, I’m exploring cloud computing and its role in creating scalable systems. I enjoy learning new technologies and aim to contribute to meaningful, real-world projects in software engineering.
     </p>
