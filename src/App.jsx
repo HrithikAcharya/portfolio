@@ -7,50 +7,46 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-indigo-950 to-blue-900 text-white font-sans">
       <Navbar />
-      <div className='content'><div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 rounded-2xl text-white/90 transition-all duration-300">
-        <h1 className="mb-14 text-3xl sm:text-3xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow text-center p-6">
-          Hrithik Acharya
-        </h1>
-        <section id="about" className="mb-18 relative">
-          <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow p-1">
-            About Me
-          </h2>
-          <p className="mb-6 text-white/80 text-base sm:text-lg text-justify">
-            I’m a Graduate student in Information Technology at Florida State University with a passion for building practical, innovative software solutions. My background includes internships in software testing, Python, web development, and machine learning–based image data analysis, along with hands-on training from QSpiders in programming and QA.
-            Currently, I’m exploring cloud computing and its role in creating scalable systems. I enjoy learning new technologies and aim to contribute to meaningful, real-world projects in software engineering.
-          </p>
-        </section>
-        <section id="skills" className="mb-18 relative">
-          <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow p-2">
-            Skills
-          </h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
-            {[
-              'Core Java',
-              'Selenium Testing (Java)',
-              'HTML5',
-              'CSS3',
-              'Javascript',
-              'Git',
-              'MySQL',
-              'Python',
-              'NodeJS',
-              'Express',
-              'EJS',
-              'React',
-            ].map(skill => (
-              <li key={skill} className="bg-white/5 rounded-xl px-4 py-4 sm:px-6 sm:py-5 shadow-lg text-white/90 transition-all duration-300 hover:scale-[1.03] text-base sm:text-lg text-center">
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section id="projects" className="mb-18 relative">
-          <h2 className="p-2 mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow">
-            My Work
-          </h2>
-          <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 relative z-10">
-            {[
+      <div className="container mx-auto px-3 sm:px-6 py-6 sm:py-12 rounded-2xl text-white/90 transition-all duration-300">
+  <h1 className="mb-8 sm:mb-14 text-3xl sm:text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow text-center p-4 sm:p-6">
+    Hrithik Acharya
+  </h1>
+
+  <section id="about" className="mb-12 sm:mb-18 relative scroll-mt-24">
+    <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow p-1">
+      About Me
+    </h2>
+    <p className="mb-6 text-white/80 text-base sm:text-lg text-left sm:text-justify leading-relaxed">
+      I’m a Graduate student in Information Technology at Florida State University with a passion for building practical, innovative software solutions. My background includes internships in software testing, Python, web development, and machine learning–based image data analysis, along with hands-on training from QSpiders in programming and QA.
+      Currently, I’m exploring cloud computing and its role in creating scalable systems. I enjoy learning new technologies and aim to contribute to meaningful, real-world projects in software engineering.
+    </p>
+  </section>
+
+  <section id="skills" className="mb-12 sm:mb-18 relative scroll-mt-24">
+    <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow p-2">
+      Skills
+    </h2>
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 relative z-10">
+      {[
+        'Core Java','Selenium Testing (Java)','HTML5','CSS3','Javascript','Git',
+        'MySQL','Python','NodeJS','Express','EJS','React',
+      ].map(skill => (
+        <li
+          key={skill}
+          className="bg-white/5 rounded-xl px-4 py-3 sm:px-6 sm:py-5 shadow-lg text-white/90 transition-all duration-300 hover:scale-[1.03] text-sm sm:text-lg text-center"
+        >
+          {skill}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="projects" className="mb-12 sm:mb-18 relative scroll-mt-24">
+    <h2 className="p-2 mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 drop-shadow">
+      My Work
+    </h2>
+    <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 relative z-10">
+      {[
               {
                 title: 'Swarm Exploration and Target Searching',
                 description: 'A simulation project carried out in Webots as a minor project, which involved locating a target in a maze using a swarm of robots and implemented the same using hardware in a maze-like environment using DFS Algorithm.',
@@ -112,11 +108,11 @@ const App = () => {
                 link: 'https://www.figma.com/proto/2MHFgDiHlEeTHALB0s645m/High-Fidelity-Prototype?node-id=115-3229&p=f&t=JN1YPKLWrHehzFrK-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=115%3A3229'
               }
             ].map(project => (
-              <ProjectCard key={project.title} title={project.title} description={project.description} link={project.link} />
-            ))}
-          </div>
-        </section>
-      </div></div>
+        <ProjectCard key={project.title} title={project.title} description={project.description} link={project.link} />
+      ))}
+    </div>
+  </section>
+</div>
       <Footer />
     </div>
   );
