@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+
+  /* Light surfaces */
+  --color-paper: #F6F6F4;
+  --color-paper-dim: #EDEDEA;
+
+  /* Text */
+  --color-ink: #111318;
+  --color-ink-soft: #565A63;
+
+  /* Dark surfaces */
+  --color-onyx: #0E0F13;
+  --color-onyx-soft: #17181E;
+
+  /* Single accent: cobalt. Deep on light, lighter tint on dark. */
+  --color-accent: #2D4CDB;
+  --color-accent-strong: #2138B0;
+  --color-accent-soft: #8FA0FF;
+
+  /* Hairlines */
+  --color-line: #E1E0DB;
+  --color-line-dark: #23252D;
+
+  --font-display: "Sora", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Media never overflows its container */
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Respect notch / rounded-corner safe areas in landscape (small screens only,
+   where base padding is 1.25rem — never reduces the larger desktop padding) */
+@supports (padding: max(0px)) {
+  @media (max-width: 40rem) {
+    .container {
+      padding-left: max(1.25rem, env(safe-area-inset-left));
+      padding-right: max(1.25rem, env(safe-area-inset-right));
+    }
+  }
+}
+
+.font-display {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-paper);
+}
+
+.grid-dots {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+/* ---------- Scroll reveal (directional + stagger via inline delay) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translateY(24px); }
+.reveal-left { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+.reveal-scale { transform: scale(0.96); }
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* ---------- Hero entrance (runs once on load) ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  opacity: 0;
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ---------- Aurora blobs drifting behind dark sections ---------- */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6%, -8%) scale(1.12); }
+  66% { transform: translate(-5%, 6%) scale(0.95); }
+}
+.aurora {
+  animation: drift 18s ease-in-out infinite;
+  will-change: transform;
+}
+.aurora-slow { animation-duration: 26s; animation-direction: reverse; }
+
+/* ---------- Status dot ---------- */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.6); }
+}
+.pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+
+/* ---------- Shimmer sweep on primary buttons ---------- */
+@keyframes shimmer {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+.btn-sheen { position: relative; overflow: hidden; }
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; height: 100%; width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+}
+.btn-sheen:hover::after { animation: shimmer 0.9s ease; }
+
+/* ---------- Gradient underline sweep for links ---------- */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease;
+}
+.link-underline:hover { background-size: 100% 1px; }
+
+/* ---------- Card lift ---------- */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -20px rgba(17, 19, 24, 0.35);
+}
+
+/* ---------- Infinite marquee ---------- */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+.marquee-track {
+  animation: marquee-scroll linear infinite;
+  white-space: nowrap;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Ghost outline number (editorial index) ---------- */
+.ghost-number {
+  -webkit-text-stroke: 1px var(--color-line);
+  color: transparent;
+  transition: -webkit-text-stroke 0.4s ease, color 0.4s ease;
+}
+.group:hover .ghost-number {
+  -webkit-text-stroke: 1px var(--color-accent);
+  color: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .animate-rise { opacity: 1; animation: none; }
+  .aurora, .pulse-dot { animation: none; }
+  .btn-sheen:hover::after { animation: none; }
+  .card-lift:hover { transform: none; }
+  .marquee-track { animation: none; }
+}

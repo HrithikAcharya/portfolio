@@ -1,0 +1,26 @@
+import React from 'react';
+import useReveal from '../hooks/useReveal';
+
+const dirClass = {
+  up: 'reveal-up',
+  left: 'reveal-left',
+  right: 'reveal-right',
+  scale: 'reveal-scale',
+};
+
+const Reveal = ({ as: Tag = 'div', delay = 0, direction = 'up', className = '', children, ...rest }) => {
+  const [ref, visible] = useReveal();
+
+  return (
+    <Tag
+      ref={ref}
+      className={`reveal ${dirClass[direction] || 'reveal-up'} ${visible ? 'reveal-visible' : ''} ${className}`}
+      style={{ transitionDelay: visible ? `${delay}ms` : '0ms' }}
+      {...rest}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+export default Reveal;
