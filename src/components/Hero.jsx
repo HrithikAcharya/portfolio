@@ -98,10 +98,6 @@ const Hero = () => {
           </ul>
         </div>
       </div>
-
-      {/* Scroll cue */}
-      <div className="relative hidden sm:flex justify-center pb-8" aria-hidden="true">
-      </div>
     </section>
   );
 };
