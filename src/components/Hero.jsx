@@ -101,10 +101,6 @@ const Hero = () => {
 
       {/* Scroll cue */}
       <div className="relative hidden sm:flex justify-center pb-8" aria-hidden="true">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/30 flex flex-col items-center gap-2">
-          Scroll
-          <span className="w-px h-8 bg-gradient-to-b from-accent-soft/60 to-transparent" />
-        </span>
       </div>
     </section>
   );
