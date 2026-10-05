@@ -3,7 +3,7 @@ export const profile = {
   role: 'Software Engineer — QA, Full-Stack & Cloud',
   location: 'Tallahassee, FL',
   status: 'Open to work',
-  resumeUrl: 'https://drive.google.com/file/d/1QUqNZT-AFQSvIcSEdS0dmf1ykUfdaXU6/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/1PMR60N-WpWnrCSMRf2uWvWfZSiHoK2eA/view?usp=sharing',
   email: 'hrithikacharya2001@gmail.com',
   linkedin: 'https://www.linkedin.com/in/hrithik-acharya-208660149/',
   github: 'https://github.com/HrithikAcharya',
